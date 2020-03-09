@@ -279,3 +279,10 @@ _sample_training_output = collect("sample", ("training_context",))
 def sample_training_output(_sample_training_output):
     """Returns a sample of the training_output"""
     return _sample_training_output[0]
+
+
+_short_sample = collect("chain_autocorrelation", ("training_context",))
+
+
+def short_sample(_short_sample):
+    return _short_sample[0]
