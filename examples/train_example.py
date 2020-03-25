@@ -5,6 +5,10 @@ train_example.py
 Toy training example where network is trained on a small multigaussian system
 and we check if the covariance of the target is reproduced.
 
+The covariance matrix is created below as a random positive matrix, 
+stored in COV_TARGET. The matrix A is a temporary variable, used to build
+a positive covariance COV_TARGET=A@A.T
+
 Should provide context to help integrate the neural networks into more
 interesting case of 2D lattice configurations
 
@@ -134,7 +138,7 @@ def main():
     """train and sample model on toy distirbution"""
     # set seed, hopefully result is reproducible
     torch.manual_seed(0)
-    # define simple mode, each network is single layered
+    # define simple model, each network is single layered
     model = RealNVP(
         size_in=N_UNITS, n_affine=8, affine_hidden_shape=(16,)
     )
